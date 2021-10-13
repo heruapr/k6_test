@@ -9,7 +9,7 @@ podTemplate(
   label: slave,
   containers:[
     containerTemplate(
-      name: 'qa-docker', image: 'loadimpact/k6', command: 'cat', ttyEnabled: 'true')],
+      name: 'qa-docker', image: 'loadimpact/k6:0.34.0', command: 'cat', ttyEnabled: 'true')],
   volumes:[
     hostPathVolume(
       hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
