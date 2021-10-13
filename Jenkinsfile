@@ -20,9 +20,9 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Installing k6'
-                sh '/root/setup_k6.sh'
+                sh './setup_k6.sh'
                 echo 'Running K6 performance tests...'
-                sh 'k6 run /root/test.js'
+                sh 'k6 run test.js'
         }
     }
   }
