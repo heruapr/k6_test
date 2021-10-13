@@ -20,6 +20,7 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
+                sh label: 'check', script: 'ls -al'
                 sh label: 'run k6', script: 'k6 run test.js'
         }
     }
