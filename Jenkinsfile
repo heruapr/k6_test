@@ -9,7 +9,7 @@ podTemplate(
   label: slave,
   containers:[
     containerTemplate(
-      name: 'qa-docker', image: 'node:14.16.0-alpine', command: 'cat', ttyEnabled: 'true')],
+      name: 'qa-docker', image: 'docker:latest', command: 'cat', ttyEnabled: 'true')],
   volumes:[
     hostPathVolume(
       hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
@@ -20,8 +20,8 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
-                sh label: 'pulling k6', script: 'docker pull loadimpact/k6'
-                sh label: 'run k6', script: 'k6 run test.js'
+                sh label: 'installing', script: 'docker pull loadimpact/k6'
+                sh label: 'run k6', script: 'docker run -i loadimpact/k6 run - <test.js'
         }
     }
   }
