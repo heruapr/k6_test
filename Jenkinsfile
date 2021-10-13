@@ -1,5 +1,3 @@
-Example pipeline script
-
 /*
  * This Jenkinsfile controls qa-backend-mocha docker image
  * Version 0.0.1
