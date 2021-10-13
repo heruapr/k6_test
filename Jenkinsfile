@@ -1,8 +1,3 @@
-/*
- * This Jenkinsfile controls qa-backend-mocha docker image
- * Version 0.0.1
- * Maintained by: Investree QA
- */
 
 def slave = 'automation-test-slave'
 podTemplate(
