@@ -18,7 +18,7 @@ podTemplate(
 ) {
   node(slave) {
   container('qa-docker') {
-    stages {
+    stage {
         stage('Performance Testing') {
                 echo 'Installing k6'
                 sh 'sudo chmod +x setup_k6.sh'
