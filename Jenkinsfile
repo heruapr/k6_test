@@ -13,12 +13,10 @@ podTemplate(
 ) {
   node(slave) {
   container('qa-docker') {
-        stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
                 git  'https://github.com/heruapr/k6_test.git'
                 sh   'ls -al'
                 sh label: 'run test', script: 'k6 run test.js'
-        }
     }
   }
 }
