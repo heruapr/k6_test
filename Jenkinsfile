@@ -21,7 +21,7 @@ podTemplate(
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
                 sh label: 'installing', script: 'docker pull loadimpact/k6'
-                sh label: 'run k6', script: 'k6 run test.js'
+                sh label: 'run k6', script: 'docker run -v $(pwd):/mnt loadimpact/k6 run /mnt/test.js'
         }
     }
   }
