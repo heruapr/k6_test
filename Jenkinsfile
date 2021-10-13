@@ -21,7 +21,7 @@ podTemplate(
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
                 sh label: 'installing', script: 'docker pull loadimpact/k6'
-                sh label: 'run k6', script: 'docker run -v /home/jenkins/agent/workspace/automation-tests/k6_test/loadtest:/loadtest -i loadimpact/k6 run /loadtest/test.js'
+                sh label: 'run k6', script: 'docker run -v /k6_test/loadtest:/loadtest -i loadimpact/k6 run /loadtest/test.js'
         }
     }
   }
