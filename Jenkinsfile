@@ -4,7 +4,7 @@ podTemplate(
   label: slave,
   containers:[
     containerTemplate(
-      name: 'qa-docker', image: 'loadimpact/k6:latest', command: 'run /test.js', ttyEnabled: 'true')],
+      name: 'qa-docker', image: 'loadimpact/k6:latest', command: 'cat', ttyEnabled: 'true')],
   volumes:[
     hostPathVolume(
       hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
@@ -15,6 +15,8 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
+                git  'https://github.com/heruapr/k6_test.git'
+                sh   'ls -al'
                 sh label: 'run test', script: 'k6 run test.js'
         }
     }
