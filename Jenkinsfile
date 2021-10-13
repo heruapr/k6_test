@@ -21,6 +21,7 @@ podTemplate(
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
                 sh 'k6 run test.js'
+                sh '-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true'
         }
     }
   }
