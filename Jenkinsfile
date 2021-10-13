@@ -20,10 +20,7 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
-                sh label: 'installing', script: 'apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69'
-                sh label: 'installing', script: 'echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list'
-                sh label: 'installing', script: 'apt-get update'
-                sh label: 'installing', script: 'apt-get install k6'
+                sh label: 'pulling k6', script: 'docker pull loadimpact/k6'
                 sh label: 'run k6', script: 'k6 run test.js'
         }
     }
