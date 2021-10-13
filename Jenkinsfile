@@ -20,7 +20,6 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Installing k6'
-                sh 'chmod +x setup_k6.sh'
                 sh 'setup_k6.sh'
                 echo 'Running K6 performance tests...'
                 sh 'k6 run test.js'
