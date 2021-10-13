@@ -20,6 +20,7 @@ podTemplate(
   container('qa-docker') {
         stage('Performance Testing') {
                 echo 'Running K6 performance tests...'
+                sh 'docker pull loadimpact/k6:0.33.0'
                 sh 'k6 run test.js'
         }
     }
