@@ -7,12 +7,12 @@ export let options = {
   //   http_req_duration: ['p(95)<500'],
   //   // http_req_failed: ['rate>0.01']
   // },
-    vus: 1,
-    duration: '5s',
+    vus: 500,
+    duration: '10s',
   };
 
 export default function () {
-  var url = 'https://invtribe06.xyz'
+  var url = 'https://google.co.id'
 
  http.get(url);
  var res =  http.get(url);
