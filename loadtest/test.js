@@ -12,7 +12,7 @@ export let options = {
   };
 
 export default function () {
-  var url = 'https://google.co.id'
+  var url = 'https://invtribe06.xyz'
 
  http.get(url);
  var res =  http.get(url);
