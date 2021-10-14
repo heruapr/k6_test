@@ -21,7 +21,7 @@ podTemplate(
                 sh   'apt-get update'
                 sh   'apt-get install k6'
                 sh   'k6 version'
-                sh label: 'run test', script: 'k6 run test.js'
+                sh label: 'run test', script: 'k6 run https://github.com/heruapr/k6_test/blob/master/loadtest/test.js'
     }
   }
 }
