@@ -21,7 +21,7 @@ podTemplate(
                 sh   'k6 version'
                 url: 'ghttps://github.com/heruapr/k6_test.git'
                 checkout scm
-                sh('apt-get add git')
+                sh('apt-get install git')
                 sh('git --version')
                 sh label: 'run test', script: 'k6 run loadtest/test.js'
     }
