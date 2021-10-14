@@ -4,7 +4,7 @@ podTemplate(
   label: slave,
   containers:[
     containerTemplate(
-      name: 'node', image: 'node:14.16.0-alpine', command: 'cat', ttyEnabled: 'true')],
+      name: 'node', image: 'node:14.18.1-buster', command: 'cat', ttyEnabled: 'true')],
   volumes:[
     hostPathVolume(
       hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
