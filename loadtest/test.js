@@ -9,6 +9,12 @@ export let options = {
   // },
     vus: 500,
     duration: '10s',
+    stages: [
+      { duration: '1m', target: 500 },
+      { duration: '2m', target: 1000 },
+      { duration: '4m', target: 50 },
+      { duration: '2m', target: 0 },
+    ]
   };
 
 export default function () {
