@@ -7,8 +7,7 @@ export let options = {
   //   http_req_duration: ['p(95)<500'],
   //   // http_req_failed: ['rate>0.01']
   // },
-    vus: 500,
-    duration: '10s',
+
     stages: [
       { duration: '1m', target: 500 },
       { duration: '2m', target: 1000 },
