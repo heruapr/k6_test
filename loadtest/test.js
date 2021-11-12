@@ -2,7 +2,7 @@ import { check, sleep } from 'k6';
 import http from 'k6/http';
 
 export let options = {
-  vus: 10000,
+  vus: 1000000,
   duration: '5s',
   iterations : 1000000
   // thresholds: {
