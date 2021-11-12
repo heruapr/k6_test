@@ -4,7 +4,7 @@ import http from 'k6/http';
 export let options = {
   vus: 10000,
   duration: '5s',
-  iterations : 10000
+  iterations : 1000000
   // thresholds: {
   //   // fail the test if avg percentile response goes above 500ms
   //   http_req_duration: ['avg<500'],
