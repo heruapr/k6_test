@@ -2,9 +2,9 @@ import { check, sleep } from 'k6';
 import http from 'k6/http';
 
 export let options = {
-  vus: 500000,
-  duration: '5s',
-  iterations : 500000
+  vus: 1,
+  duration: '1s',
+  iterations : 1
   // thresholds: {
   //   // fail the test if avg percentile response goes above 500ms
   //   http_req_duration: ['avg<500'],
@@ -20,5 +20,11 @@ export default function () {
         "response code was 200": (res) => res.status == 200
  })
  console.log(res.status)
- sleep(2)
+}
+
+export function handleSummary(data) {
+  console.log('Preparing the end-of-test summary...');
+  return {
+      './report/report.json': JSON.stringify(data),
+  }
 }

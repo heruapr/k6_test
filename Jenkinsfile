@@ -13,6 +13,7 @@ podTemplate(
 ) {
   node(slave) {
   container('node') {
+      try{
                 echo 'Running K6 performance tests...'
                 sh   'apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69'
                 sh   'echo "deb https://dl.k6.io/deb stable main" | tee /etc/apt/sources.list.d/k6.list'
@@ -24,6 +25,14 @@ podTemplate(
                 sh('apt-get install git')
                 sh('git --version')
                 sh label: 'run test', script: 'k6 run loadtest/test.js'
+                sh label: 'generating report', script: 'node reporter.js'
+      }
+      catch(err){
+          
+      }
+      finally{
+          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'report/report.html/report.html', reportFiles: 'summary.html', reportName: 'HTML Report', reportTitles: ''])
+      }
     }
   }
 }
