@@ -31,7 +31,7 @@ podTemplate(
           
       }
       finally{
-          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'report/report.html/report.html', reportFiles: 'summary.html', reportName: 'HTML Report', reportTitles: ''])
+          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'report/report.html', reportFiles: 'summary.html', reportName: 'HTML Report', reportTitles: ''])
       }
     }
   }
